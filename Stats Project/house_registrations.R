@@ -1,0 +1,41 @@
+library(fpp2)
+library(seasonal)
+library(tseries)
+registrations.df <- read.csv('D:/Chetan-PC/Stats CA2/NewHouseRegistrations_Ireland.csv')
+names(registrations.df)<- c('years', 'registrations')
+registrations.ts <- ts(registrations.df$registrations,start=c(1978), end = c(2019), frequency = 1)
+str(registrations.ts)
+print(registrations.ts)
+autoplot(registrations.ts)
+
+registrations.ses <- ses(registrations.ts, alpha=0.8, h=3)
+summary(registrations.ses)
+plot(registrations.ses)
+checkresiduals(registrations.ses)
+autoplot(registrations.ses)+autolayer(fitted(registrations.ses), series = 'Fitted')
+
+registrations.ets <- ets(registrations.ts, model='ZZZ')
+summary(registrations.ets)
+checkresiduals(registrations.ets)
+round(accuracy(temp_model),2)
+autoplot(forecast(registrations.ets, 3))+autolayer(fitted(forecast(registrations.ets)), series = 'Fitted')
+
+temp_model_2 <- thetaf(registrations.ts, h=3)
+summary(temp_model_2)
+round(accuracy(temp_model_2),2)
+plot(thetaf(registrations.ts, h=3))
+
+adf.test(registrations.ts) ##Augmented Dickey Fuller Test to test stationarity of time series
+kpss.test(registrations.ts) ## KPSS Test to test stationarity of time series
+ndiffs(registrations.ts)
+ggtsdisplay(registrations.ts)
+registrations.arima <- arima(registrations.ts, order=c(2,0,0))
+summary(registrations.arima)
+Box.test(registrations.arima$residuals, type='Ljung-Box')
+
+qqnorm(registrations.arima$residual)
+qqline(registrations.arima$residual)
+checkresiduals(registrations.arima)
+autoplot(forecast(registrations.arima, 3))+autolayer(fitted(forecast(registrations.arima)), series = 'Fitted')
+forecast(registrations.arima, h=3)
+plot(forecast(registrations.arima, 3))

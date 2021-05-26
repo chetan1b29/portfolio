@@ -1,0 +1,62 @@
+INFO:numexpr.utils:Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+INFO:numexpr.utils:Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+INFO:numexpr.utils:Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+INFO:numexpr.utils:Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+INFO:numexpr.utils:Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+ERROR:root:Exception occurred at mongo_connection
+Traceback (most recent call last):
+  File "<ipython-input-1-2a0fda5f52be>", line 15, in <module>
+    recall_collection.insert_many(json_to_dump)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\collection.py", line 761, in insert_many
+    blk.execute(write_concern, session=session)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\bulk.py", line 528, in execute
+    return self.execute_command(generator, write_concern, session)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\bulk.py", line 358, in execute_command
+    with client._tmp_session(session) as s:
+  File "C:\Users\cheta\anaconda3\lib\contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\mongo_client.py", line 1829, in _tmp_session
+    s = self._ensure_session(session)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\mongo_client.py", line 1816, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\mongo_client.py", line 1766, in __start_session
+    server_session = self._get_server_session()
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\mongo_client.py", line 1802, in _get_server_session
+    return self._topology.get_server_session()
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\topology.py", line 485, in get_server_session
+    self._select_servers_loop(
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\topology.py", line 215, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: 192.168.56.30:27017: timed out, Timeout: 30s, Topology Description: <TopologyDescription id: 608f490d07638d534ce56d1e, topology_type: Single, servers: [<ServerDescription ('192.168.56.30', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('192.168.56.30:27017: timed out')>]>
+ERROR:root:Exception occurred at mongo_connection
+Traceback (most recent call last):
+  File "<ipython-input-1-2a0fda5f52be>", line 15, in <module>
+    recall_collection.insert_many(json_to_dump)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\collection.py", line 761, in insert_many
+    blk.execute(write_concern, session=session)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\bulk.py", line 528, in execute
+    return self.execute_command(generator, write_concern, session)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\bulk.py", line 358, in execute_command
+    with client._tmp_session(session) as s:
+  File "C:\Users\cheta\anaconda3\lib\contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\mongo_client.py", line 1829, in _tmp_session
+    s = self._ensure_session(session)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\mongo_client.py", line 1816, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\mongo_client.py", line 1766, in __start_session
+    server_session = self._get_server_session()
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\mongo_client.py", line 1802, in _get_server_session
+    return self._topology.get_server_session()
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\topology.py", line 485, in get_server_session
+    self._select_servers_loop(
+  File "C:\Users\cheta\anaconda3\lib\site-packages\pymongo\topology.py", line 215, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: 192.168.56.30:27017: timed out, Timeout: 30s, Topology Description: <TopologyDescription id: 608f4974e0395c4bfa12513a, topology_type: Single, servers: [<ServerDescription ('192.168.56.30', 27017) server_type: Unknown, rtt: None, error=NetworkTimeout('192.168.56.30:27017: timed out')>]>
+INFO:numexpr.utils:Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
